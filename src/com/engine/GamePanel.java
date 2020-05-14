@@ -1,4 +1,4 @@
-package com.cherobin.engine;
+package com.engine;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -13,11 +13,9 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.io.BufferedReader;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -49,7 +47,6 @@ public class GamePanel extends JPanel implements Runnable {
 		instance = this;
 
 		rnd = new Random();
-		 
 		
 		setBackground(Color.white); // white background
 		setPreferredSize(new Dimension(PWIDTH, PHEIGHT));
@@ -249,19 +246,5 @@ public class GamePanel extends JPanel implements Runnable {
 		app.setResizable(false);
 		app.setVisible(true);
 	} // end of main()
-
-	public BufferedImage loadImage(String filename) {
-
-		try {
-			BufferedImage imgtmp = ImageIO.read(getClass().getResource(filename));
-			BufferedImage imgfinal = new BufferedImage(imgtmp.getWidth(), imgtmp.getHeight(),
-					BufferedImage.TYPE_INT_ARGB);
-			imgfinal.getGraphics().drawImage(imgtmp, 0, 0, null);
-			return imgfinal;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 
 } // end of GamePanel class

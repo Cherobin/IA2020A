@@ -1,4 +1,4 @@
-package com.cherobin.engine;
+package com.engine;
 import java.awt.Graphics2D; 
 
 public abstract class MyCanvas {
